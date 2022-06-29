@@ -16,6 +16,14 @@ pipeline {
               echo 'Build the packages using Maven'
               echo "mvn clean install"
           }     
-      }      
+      } 
+      stage('SonarQube Analysis'){
+         steps {
+              echo 'Build the packages using Maven'
+              withSonarQubeEnv(credentialsId: 'sonarqube-token') {
+					echo 'mvn sonar:sonar'
+			}
+         }     
+      }    
    }
 }
