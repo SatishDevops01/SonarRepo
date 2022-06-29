@@ -20,9 +20,9 @@ pipeline {
       stage('SonarQube Analysis'){
          steps {
               echo 'Build the packages using Maven'
-              withSonarQubeEnv(credentialsId: 'sonarqube-token') {
-					echo 'mvn sonar:sonar'
-			}
+              withSonarQubeEnv('sonarqube-8.9.9') {
+		  echo 'mvn sonar:sonar'
+	      }
          }     
       }    
    }
