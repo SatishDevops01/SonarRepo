@@ -7,7 +7,7 @@ pipeline {
       stage('SCM Chekout'){
           steps {
              echo 'Code checkout from GIT SCM'
-             git credentialsId: 'GitSSHKey', url: 'https://github.com/SatishDevops01/MavenRepo'
+             git credentialsId: 'GitSSHKey', url: 'https://github.com/SatishDevops01/SonarRepo'
           }
       }
       stage('Build Package'){
