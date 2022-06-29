@@ -16,12 +16,6 @@ pipeline {
               echo 'Build the packages using Maven'
               echo "mvn clean install"
           }     
-      }
-      stage('SonarQube Analysis'){
-          steps {
-              echo 'Static code analysis of the app using SonarQube'
-              echo "mvn sonar:sonar"
-          }     
-      }
+      }      
    }
 }
