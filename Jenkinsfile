@@ -13,9 +13,9 @@ pipeline {
       }
       stage('SonarQube analysis') {
 		steps{	
-			echo 'SonarQube Analysis start'
-			def scannerHome = tool name: 'Sonar-4', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-			echo "sonar-scanner sonar:sonar"
+			echo 'SonarQube Analysis start'			
+			echo "sonar-scanner -Dsonar.projectKey=maven-basic -Dsonar.sources=src"
+			
 		     }
 	}
       stage('Build Packages'){
