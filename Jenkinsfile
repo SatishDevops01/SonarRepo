@@ -6,23 +6,24 @@ pipeline {
     stages {
       stage('SCM Chekout'){
           steps {
-             echo 'Code checkout from GIT SCM'
-             git credentialsId: 'GitSSHKey', url: 'https://github.com/SatishDevops01/SonarRepo'
+             echo 'Code checkout from GIT'
+             git credentialsId: 'GitSSHKey', url: 'https://github.com/SatishDevops01/SonarRepo', branch: 'master'
           }
       }
-      stage('Build Package'){
-          steps {
-              echo 'Build the packages using Maven'
-              echo "mvn clean install"
-          }     
-      } 
-      stage('SonarQube Analysis'){
+      stage('Code Analysis'){
          steps {
-              echo 'Build the packages using Maven'
+              echo 'Static code analusis using SonarQube'
               withSonarQubeEnv('sonarqube-8.9.9') {
-		  echo 'mvn sonar:sonar'
+			  echo 'mvn sonar:sonar'
 	      }
          }     
-      }    
+      } 
+      stage('Build Packages'){
+          steps {
+              echo 'Build the packages using Maven'
+              echo "mvn clean package"
+          }     
+      } 
+   
    }
 }
