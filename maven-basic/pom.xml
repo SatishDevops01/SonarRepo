@@ -13,7 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <maven.compiler.release>8.9</maven.compiler.release>
+    <maven.compiler.release>11</maven.compiler.release>
   </properties>
 
   <dependencies>
@@ -41,7 +41,7 @@
         <plugin>
           <groupId>org.sonarsource.scanner.maven</groupId>
           <artifactId>sonar-maven-plugin</artifactId>
-          <version>4.7.0</version>
+          <version>3.7.0.1746</version>
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
