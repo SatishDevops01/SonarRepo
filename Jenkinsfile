@@ -1,8 +1,10 @@
 pipeline {
     agent any
+	environment {
+        scannerHome = tool 'sonar4'
+    }
     tools {
-        maven 'maven3' 
-	sonar 'Sonar-4'
+        maven 'maven3'	
     }
     stages {
       stage('SCM Chekout'){
@@ -13,8 +15,10 @@ pipeline {
       }
       stage('SonarQube analysis') {
 		steps{	
-			echo 'SonarQube Analysis start'			
-			echo "sonar-scanner -Dsonar.projectKey=maven-basic -Dsonar.sources=src"
+			echo 'SonarQube Analysis start'	
+			withSonarQubeEnv('sonarqube') {
+            		echo "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=maven-basic -Dsonar.sources=src"
+        		}
 			
 		     }
 	}
