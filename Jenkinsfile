@@ -1,7 +1,8 @@
 pipeline {
     agent any
     tools {
-        maven 'maven3'        
+        maven 'maven3' 
+	sonar 'Sonar-4'
     }
     stages {
       stage('SCM Chekout'){
@@ -14,7 +15,7 @@ pipeline {
 		steps{	
 			echo 'SonarQube Analysis start'
 			def scannerHome = tool name: 'Sonar-4', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-			echo "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=Jurisprudencia_ORCTXT -Dsonar.sources=. -Dsonar.login=69d977f11910740d9ca95b75cede210db01489c9"
+			echo "sonar-scanner sonar:sonar"
 		     }
 	}
       stage('Build Packages'){
