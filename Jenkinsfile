@@ -15,10 +15,8 @@ pipeline {
       }
       stage('SonarQube analysis') {
 		steps{	
-			echo 'SonarQube Analysis start'	
-			withSonarQubeEnv('sonarqube') {
+			echo 'SonarQube Code Analysis'
             		echo "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=maven-basic -Dsonar.sources=src"
-        		}
 			
 		     }
 	}
